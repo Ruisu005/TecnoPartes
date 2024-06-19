@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/tecnopartes"
+            android:layout_gravity="center"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/editTextFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombres"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/editTextLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Apellidos"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/editTextEmailRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Correo Electrónico"
+            android:inputType="textEmailAddress"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/editTextUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre de Usuario"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/editTextPasswordRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selecciona tu Edad"/>
+
+        <Spinner
+            android:id="@+id/spinnerAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selecciona tu Estado"/>
+
+        <Spinner
+            android:id="@+id/spinnerStates"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categorías de Interés"/>
+
+        <GridLayout
+            android:id="@+id/gridLayoutCategories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:layout_marginBottom="8dp">
+
+            <CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Procesadores"/>
+            <CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tarjetas Gráficas"/>
+            <CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="RAM"/>
+            <CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tarjetas Madres"/>
+            <CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Gabinetes"/>
+            <CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Almacenamiento"/>
+            <CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Enfriamiento de Aire"/>
+            <CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Enfriamiento Líquido"/>
+            <CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Fuentes de Poder"/>
+            <CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ventiladores"/>
+        </GridLayout>
+
+        <CheckBox
+            android:id="@+id/checkBoxTerms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aceptar términos y condiciones"
+            android:layout_marginBottom="8dp"/>
+
+        <CheckBox
+            android:id="@+id/checkBoxNotifications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recibir notificaciones de ofertas"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/buttonRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registrarse"/>
+
+    </LinearLayout>
+
+</ScrollView>

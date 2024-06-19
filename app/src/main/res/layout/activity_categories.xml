@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CategoriesActivity"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/tecnopartes"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seleccione las categorías de su interés"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"/>
+
+        <GridLayout
+            android:id="@+id/gridLayoutCategories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:layout_gravity="center">
+
+            <!-- Procesadores -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="8dp">
+
+                <ImageView
+                    android:id="@+id/imageViewProcessors"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/processors_image"
+                    android:contentDescription="Procesadores"
+                    android:scaleType="centerCrop"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Procesadores"
+                    android:textSize="16sp"
+                    android:background="@android:color/white"
+                    android:padding="4dp"/>
+            </LinearLayout>
+
+            <!-- Tarjetas Gráficas -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="8dp">
+
+                <ImageView
+                    android:id="@+id/imageViewGraphicsCards"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/graphics_cards_image"
+                    android:contentDescription="Tarjetas Gráficas"
+                    android:scaleType="centerCrop"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tarjetas Gráficas"
+                    android:textSize="16sp"
+                    android:background="@android:color/white"
+                    android:padding="4dp"/>
+            </LinearLayout>
+
+            <!-- RAM -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="8dp">
+
+                <ImageView
+                    android:id="@+id/imageViewRAM"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ram_image"
+                    android:contentDescription="RAM"
+                    android:scaleType="centerCrop"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RAM"
+                    android:textSize="16sp"
+                    android:background="@android:color/white"
+                    android:padding="4dp"/>
+            </LinearLayout>
+
+            <!-- Tarjetas Madres -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="8dp">
+
+                <ImageView
+                    android:id="@+id/imageViewMotherboards"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/motherboards_image"
+                    android:contentDescription="Tarjetas Madres"
+                    android:scaleType="centerCrop"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tarjetas Madres"
+                    android:textSize="16sp"
+                    android:background="@android:color/white"
+                    android:padding="4dp"/>
+            </LinearLayout>
+
+            <!-- Gabinetes -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="8dp">
+
+                <ImageView
+                    android:id="@+id/imageViewCases"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/cases_image"
+                    android:contentDescription="Gabinetes"
+                    android:scaleType="centerCrop"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gabinetes"
+                    android:textSize="16sp"
+                    android:background="@android:color/white"
+                    android:padding="4dp"/>
+            </LinearLayout>
+
+            <!-- Almacenamiento -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="8dp">
+
+                <ImageView
+                    android:id="@+id/imageViewStorage"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/storage_image"
+                    android:contentDescription="Almacenamiento"
+                    android:scaleType="centerCrop"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Almacenamiento"
+                    android:textSize="16sp"
+                    android:background="@android:color/white"
+                    android:padding="4dp"/>
+            </LinearLayout>
+
+            <!-- Enfriamiento de Aire -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="8dp">
+
+                <ImageView
+                    android:id="@+id/imageViewAirCooling"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/air_cooling_image"
+                    android:contentDescription="Enfriamiento de Aire"
+                    android:scaleType="centerCrop"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enfriamiento de Aire"
+                    android:textSize="16sp"
+                    android:background="@android:color/white"
+                    android:padding="4dp"/>
+            </LinearLayout>
+
+            <!-- Enfriamiento Líquido -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="8dp">
+
+                <ImageView
+                    android:id="@+id/imageViewLiquidCooling"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/liquid_cooling_image"
+                    android:contentDescription="Enfriamiento Líquido"
+                    android:scaleType="centerCrop"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enfriamiento Líquido"
+                    android:textSize="16sp"
+                    android:background="@android:color/white"
+                    android:padding="4dp"/>
+            </LinearLayout>
+
+            <!-- Fuentes de Poder -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="8dp">
+
+                <ImageView
+                    android:id="@+id/imageViewPowerSupplies"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/power_supplies_image"
+                    android:contentDescription="Fuentes de Poder"
+                    android:scaleType="centerCrop"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fuentes de Poder"
+                    android:textSize="16sp"
+                    android:background="@android:color/white"
+                    android:padding="4dp"/>
+            </LinearLayout>
+
+            <!-- Ventiladores -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="8dp">
+
+                <ImageView
+                    android:id="@+id/imageViewFans"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/fans_image"
+                    android:contentDescription="Ventiladores"
+                    android:scaleType="centerCrop"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ventiladores"
+                    android:textSize="16sp"
+                    android:background="@android:color/white"
+                    android:padding="4dp"/>
+            </LinearLayout>
+
+        </GridLayout>
+
+    </LinearLayout>
+
+</ScrollView>
