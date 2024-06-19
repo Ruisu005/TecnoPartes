@@ -6,7 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CategoriesActivity"
-    android:padding="16dp">
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -287,6 +290,34 @@
             </LinearLayout>
 
         </GridLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Productos Destacados"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPagerFeaturedProducts"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Marcas Patrocinadoras"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPagerSponsorBrands"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"/>
 
     </LinearLayout>
 

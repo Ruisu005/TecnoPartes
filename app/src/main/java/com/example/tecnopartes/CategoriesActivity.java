@@ -1,7 +1,10 @@
 package com.example.tecnopartes;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.GridLayout;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -12,12 +15,17 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CategoriesActivity extends AppCompatActivity {
+
+    private ViewPager viewPagerFeaturedProducts;
+    private ViewPager viewPagerSponsorBrands;
+    private GridView gridViewCategories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +48,11 @@ public class CategoriesActivity extends AppCompatActivity {
         ImageView imageViewLiquidCooling = findViewById(R.id.imageViewLiquidCooling);
         ImageView imageViewPowerSupplies = findViewById(R.id.imageViewPowerSupplies);
         ImageView imageViewFans = findViewById(R.id.imageViewFans);
+
+        viewPagerFeaturedProducts = findViewById(R.id.viewPagerFeaturedProducts);
+        viewPagerSponsorBrands = findViewById(R.id.viewPagerSponsorBrands);
+
+        GridLayout gridLayoutCategories = findViewById(R.id.gridLayoutCategories);
 
         imageViewProcessors.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,6 +123,46 @@ public class CategoriesActivity extends AppCompatActivity {
                 Toast.makeText(CategoriesActivity.this, "Ventiladores seleccionado", Toast.LENGTH_SHORT).show();
             }
         });
+
+        FeaturedProductsAdapter featuredProductsAdapter = new FeaturedProductsAdapter(this);
+        SponsorBrandsAdapter sponsorBrandsAdapter = new SponsorBrandsAdapter(this);
+
+        viewPagerFeaturedProducts.setAdapter(featuredProductsAdapter);
+        viewPagerSponsorBrands.setAdapter(sponsorBrandsAdapter);
+
+        // Configurar clics en las categorías
+        for (int i = 0; i < gridLayoutCategories.getChildCount(); i++) {
+            View child = gridLayoutCategories.getChildAt(i);
+            if (child instanceof ImageView) {
+                final String categoryName = getCategoryNameFromIndex(i); // Método para obtener el nombre de la categoría
+                child.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Abrir CategoryProductsActivity y pasar el nombre de la categoría como extra
+                        Intent intent = new Intent(CategoriesActivity.this, CategoryProductsActivity.class);
+                        intent.putExtra(CategoryProductsActivity.EXTRA_CATEGORY_NAME, categoryName);
+                        startActivity(intent);
+                    }
+                });
+            }
+        }
+    }
+
+    // Método para obtener el nombre de la categoría según el índice
+    private String getCategoryNameFromIndex(int index) {
+        switch (index) {
+            case 0: return "Procesadores";
+            case 1: return "Tarjetas Gráficas";
+            case 2: return "RAM";
+            case 3: return "Tarjetas Madres";
+            case 4: return "Gabinetes";
+            case 5: return "Almacenamiento";
+            case 6: return "Enfriamiento de Aire";
+            case 7: return "Enfriamiento Líquido";
+            case 8: return "Fuentes de Poder";
+            case 9: return "Ventiladores";
+            default: return "";
+        }
     }
 
 }

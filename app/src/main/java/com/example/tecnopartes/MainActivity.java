@@ -39,27 +39,31 @@ public class MainActivity extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    String email = editTextEmail.getText().toString().trim();
-                    String password = editTextPassword.getText().toString().trim();
+                String email = editTextEmail.getText().toString().trim();
+                String password = editTextPassword.getText().toString().trim();
 
-                    if (email.isEmpty() || password.isEmpty()) {
-                        Toast.makeText(MainActivity.this, "Por favor, ingrese el correo y la contraseña", Toast.LENGTH_SHORT).show();
+                if (email.isEmpty() || password.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Por favor, ingrese el correo y la contraseña", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Lógica para verificar las credenciales de inicio de sesión
+                    // Si las credenciales son válidas, navega a la siguiente actividad
+                    // Por ejemplo:
+                    if (isValidUser(email, password)) {
+                        Intent intent = new Intent(MainActivity.this, CategoriesActivity.class);
+                        startActivity(intent);
+                        finish(); // Termina la actividad actual para evitar volver atrás con el botón de atrás
                     } else {
-                        // Lógica para verificar las credenciales de inicio de sesión
-                        if (isValidUser(email, password)) {
-                            Intent intent = new Intent(MainActivity.this, CategoriesActivity.class);
-                            startActivity(intent);
-                            finish(); // Termina la actividad actual
-                        } else {
-                            Toast.makeText(MainActivity.this, "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
-                        }
+                        Toast.makeText(MainActivity.this, "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
                     }
-                } catch (Exception e) {
-                    // Captura cualquier excepción y muestra un mensaje de error
-                    Toast.makeText(MainActivity.this, "Error al iniciar sesión: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                    e.printStackTrace(); // Imprime la traza de la excepción en Logcat para depuración
                 }
+            }
+        });
+
+        textViewRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+                startActivity(intent);
             }
         });
     }
