@@ -23,10 +23,6 @@ import java.util.List;
 
 public class CategoriesActivity extends AppCompatActivity {
 
-    private ViewPager viewPagerFeaturedProducts;
-    private ViewPager viewPagerSponsorBrands;
-    private GridView gridViewCategories;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,131 +34,29 @@ public class CategoriesActivity extends AppCompatActivity {
             return insets;
         });
 
-        ImageView imageViewProcessors = findViewById(R.id.imageViewProcessors);
-        ImageView imageViewGraphicsCards = findViewById(R.id.imageViewGraphicsCards);
-        ImageView imageViewRAM = findViewById(R.id.imageViewRAM);
-        ImageView imageViewMotherboards = findViewById(R.id.imageViewMotherboards);
-        ImageView imageViewCases = findViewById(R.id.imageViewCases);
-        ImageView imageViewStorage = findViewById(R.id.imageViewStorage);
-        ImageView imageViewAirCooling = findViewById(R.id.imageViewAirCooling);
-        ImageView imageViewLiquidCooling = findViewById(R.id.imageViewLiquidCooling);
-        ImageView imageViewPowerSupplies = findViewById(R.id.imageViewPowerSupplies);
-        ImageView imageViewFans = findViewById(R.id.imageViewFans);
-
-        viewPagerFeaturedProducts = findViewById(R.id.viewPagerFeaturedProducts);
-        viewPagerSponsorBrands = findViewById(R.id.viewPagerSponsorBrands);
-
-        GridLayout gridLayoutCategories = findViewById(R.id.gridLayoutCategories);
-
-        imageViewProcessors.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(CategoriesActivity.this, "Procesadores seleccionado", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        imageViewGraphicsCards.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(CategoriesActivity.this, "Tarjetas Gráficas seleccionado", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        imageViewRAM.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(CategoriesActivity.this, "RAM seleccionado", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        imageViewMotherboards.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(CategoriesActivity.this, "Tarjetas Madres seleccionado", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        imageViewCases.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(CategoriesActivity.this, "Gabinetes seleccionado", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        imageViewStorage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(CategoriesActivity.this, "Almacenamiento seleccionado", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        imageViewAirCooling.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(CategoriesActivity.this, "Enfriamiento de Aire seleccionado", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        imageViewLiquidCooling.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(CategoriesActivity.this, "Enfriamiento Líquido seleccionado", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        imageViewPowerSupplies.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(CategoriesActivity.this, "Fuentes de Poder seleccionado", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        imageViewFans.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(CategoriesActivity.this, "Ventiladores seleccionado", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        FeaturedProductsAdapter featuredProductsAdapter = new FeaturedProductsAdapter(this);
-        SponsorBrandsAdapter sponsorBrandsAdapter = new SponsorBrandsAdapter(this);
-
-        viewPagerFeaturedProducts.setAdapter(featuredProductsAdapter);
-        viewPagerSponsorBrands.setAdapter(sponsorBrandsAdapter);
-
-        // Configurar clics en las categorías
-        for (int i = 0; i < gridLayoutCategories.getChildCount(); i++) {
-            View child = gridLayoutCategories.getChildAt(i);
-            if (child instanceof ImageView) {
-                final String categoryName = getCategoryNameFromIndex(i); // Método para obtener el nombre de la categoría
-                child.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // Abrir CategoryProductsActivity y pasar el nombre de la categoría como extra
-                        Intent intent = new Intent(CategoriesActivity.this, CategoryProductsActivity.class);
-                        intent.putExtra(CategoryProductsActivity.EXTRA_CATEGORY_NAME, categoryName);
-                        startActivity(intent);
-                    }
-                });
-            }
-        }
+        setupCategoryClick(R.id.imageViewProcessors, "Procesadores");
+        setupCategoryClick(R.id.imageViewGraphicsCards, "Tarjetas Gráficas");
+        setupCategoryClick(R.id.imageViewRAM, "RAM");
+        setupCategoryClick(R.id.imageViewMotherboards, "Tarjetas Madres");
+        setupCategoryClick(R.id.imageViewCases, "Gabinetes");
+        setupCategoryClick(R.id.imageViewStorage, "Almacenamiento");
+        setupCategoryClick(R.id.imageViewAirCooling, "Enfriamiento de Aire");
+        setupCategoryClick(R.id.imageViewLiquidCooling, "Enfriamiento Líquido");
+        setupCategoryClick(R.id.imageViewPowerSupplies, "Fuentes de Poder");
+        setupCategoryClick(R.id.imageViewFans, "Ventiladores");
     }
 
-    // Método para obtener el nombre de la categoría según el índice
-    private String getCategoryNameFromIndex(int index) {
-        switch (index) {
-            case 0: return "Procesadores";
-            case 1: return "Tarjetas Gráficas";
-            case 2: return "RAM";
-            case 3: return "Tarjetas Madres";
-            case 4: return "Gabinetes";
-            case 5: return "Almacenamiento";
-            case 6: return "Enfriamiento de Aire";
-            case 7: return "Enfriamiento Líquido";
-            case 8: return "Fuentes de Poder";
-            case 9: return "Ventiladores";
-            default: return "";
-        }
-    }
+    private void setupCategoryClick(int imageViewId, final String category) {
+        ImageView imageView = findViewById(imageViewId);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CategoriesActivity.this, CategoryProductsActivity.class);
+                intent.putExtra("category", category);
+                startActivity(intent);
+            }
+        });
 
+    }
 }
+

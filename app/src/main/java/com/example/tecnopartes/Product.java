@@ -3,36 +3,30 @@ package com.example.tecnopartes;
 public class Product {
 
     private String name;
-    private String brand;
-    private String category;
-    private double price;
-    private int imageResourceId; // ID del recurso de imagen
+    private String description;
+    private int price;
+    private int imageResId;  // Añadido para la imagen del producto
 
-    public Product(String name, String brand, String category, double price, int imageResourceId) {
+    public Product(String name, String description, int price, int imageResId) {
         this.name = name;
-        this.brand = brand;
-        this.category = category;
+        this.description = description;
         this.price = price;
-        this.imageResourceId = imageResourceId;
+        this.imageResId = imageResId;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getBrand() {
-        return brand;
+    public String getDescription() {
+        return description;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public int getImageResourceId() {
-        return imageResourceId;
+    public int getImageResId() {
+        return imageResId;
     }
 }
